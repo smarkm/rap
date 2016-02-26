@@ -31,7 +31,7 @@ public final class ExampleUtil {
     label.setLayoutData( createHeadlineLayoutData() );
     Composite contentComp = new Composite( pageComp, SWT.NONE );
     contentComp.setLayoutData( ExampleUtil.createFillData() );
-    return contentComp;
+    return contentComp; 
   }
 
   public static void createHeading( Composite parent, String text, int horizontalSpan ) {

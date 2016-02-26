@@ -39,7 +39,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.Version;
 
-
+/**
+ *  主页入口
+ */
 public class MainUi extends AbstractEntryPoint {
 
   private static final String RAP_PAGE_URL = "http://eclipse.org/rap/";
@@ -83,6 +85,9 @@ public class MainUi extends AbstractEntryPoint {
     }
   }
 
+  /**
+   * ？？？
+   */
   private void selectInitialContribution() {
     IExampleContribution contribution = Examples.getInstance().findInitialContribution();
     if( contribution != null ) {
@@ -90,6 +95,9 @@ public class MainUi extends AbstractEntryPoint {
     }
   }
 
+  /**
+   * 创建页面的滚动主窗口用来显示页面所有内容，并设置窗口的高度和宽度等
+   */
   private ScrolledComposite createScrolledArea( Composite parent ) {
     ScrolledComposite scrolledComp = new ScrolledComposite( parent, SWT.V_SCROLL | SWT.H_SCROLL );
     scrolledComp.setMinHeight( CONTENT_MIN_HEIGHT );
@@ -99,15 +107,22 @@ public class MainUi extends AbstractEntryPoint {
     return scrolledComp;
   }
 
+  
+  /**
+   * 创建页面内容
+   */
   private Composite createContent( ScrolledComposite scrolledArea ) {
     Composite comp = new Composite( scrolledArea, SWT.NONE );
     comp.setLayout( new FormLayout() );
-    Composite header = createHeader( comp );
-    header.setLayoutData( createHeaderFormData() );
-    createContentBody( comp, header );
+    Composite header = createHeader( comp );  //创建页头
+    header.setLayoutData( createHeaderFormData() ); //设置页头布局
+    createContentBody( comp, header ); //创建页面主体
     return comp;
   }
 
+  /**
+   * 创建页面头部
+   */
   private Composite createHeader( Composite parent ) {
     Composite comp = new Composite( parent, SWT.NONE );
     comp.setData( RWT.CUSTOM_VARIANT, "header" );

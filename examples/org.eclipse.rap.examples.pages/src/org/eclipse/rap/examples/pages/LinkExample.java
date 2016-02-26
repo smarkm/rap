@@ -23,7 +23,11 @@ import org.eclipse.swt.widgets.Link;
 
 public class LinkExample implements IExamplePage {
 
-  public void createControl( Composite parent ) {
+  /**
+   * @wbp.parser.entryPoint
+   */
+  public void createControl( Composite  pp) {
+    Composite parent = new Composite( pp, 0);
     parent.setLayout( ExampleUtil.createFillLayout( true ) );
     parent.setLayoutData( ExampleUtil.createFillData() );
     final Link link2 = new Link( parent, SWT.NONE );
